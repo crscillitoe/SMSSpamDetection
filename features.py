@@ -30,3 +30,7 @@ def percent_punctuation(text):
 # Length of the text
 def length(text):
     return len(text)
+
+# Number of times the word 'free' occurs in the given text
+def num_free_occurences(text)
+    return 0
