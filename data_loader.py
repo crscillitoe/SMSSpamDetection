@@ -4,12 +4,6 @@
 
 import csv
 
-def main():
-    # Test module
-    file_path = 'spam.csv'
-    data = load_data(file_path)
-    print(data)
-
 def load_data(file_path):
     to_return = []
     with open(file_path, encoding='ISO-8859-1') as csv_file:
@@ -22,7 +16,3 @@ def load_data(file_path):
             to_return.append(m)
 
         return to_return
-
-
-if __name__ == '__main__':
-    main()
