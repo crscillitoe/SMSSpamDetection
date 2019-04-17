@@ -8,17 +8,35 @@
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- #
 
 
+import re
+
 # Number of times a URL appears in the text
 def url_count(text):
-    return 0
+    count = 0
+    for word in text.split():
+      if 'http://' in word or 'https://' in word.lower():
+        count += 1
+    return count
 
 # Number of times a currency symbol appears in the text
 def currency_count(text):
-    return 0
+    count = 0
+    symbols = ['$', '£']
+    for word in text.split():
+      for symbol in symbols:
+        if symbol in word:
+          count += 1
+    return count
 
 # Returns the length of the longest series of consecutive numbers in the given text
 def longest_numerical_string(text):
-    return 0
+    numbers = '\d+'
+    sequences = re.findall(numbers, text)
+    longest = 0
+    for sequence in sequences:
+      if len(sequence) > longest:
+        longest = len(sequence)
+    return longest
 
 # Returns the average word length in the given text
 def average_word_length(text):
