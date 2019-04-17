@@ -12,11 +12,10 @@ import re
 
 # Number of times a URL appears in the text
 def url_count(text):
-    count = 0
-    for word in text.split():
-      if 'http://' in word or 'https://' in word.lower():
-        count += 1
-    return count
+    # https://www.geeksforgeeks.org/python-check-url-string/
+    url = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    urls = re.findall(url, text.lower())
+    return len(urls)
 
 # Number of times a currency symbol appears in the text
 def currency_count(text):
@@ -40,13 +39,21 @@ def longest_numerical_string(text):
 
 # Returns the average word length in the given text
 def average_word_length(text):
-    text = text.split(' ')
-    print(text)
-    return 0
+    words = text.split(' ')
+    length = 0
+    for word in words:
+        length += len(word)
+    return length/len(words)
 
 # Number of times the word 'win' occurs in the given text
 def num_win_occurences(text):
-    return 0
+    words = text.split(' ')
+    count = 0
+    for word in words:
+        word = word.lower()
+        if word == 'win' or word == 'winning':
+            count += 1
+    return count
 
 # Number of times the word 'free' occurs in the given text
 def num_free_occurences(text):
