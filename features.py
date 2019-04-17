@@ -35,7 +35,7 @@ def num_free_occurences(text):
     words = text.split(' ')
     count = 0
     for word in words:
+        word = word.lower()
         if word == 'free':
             count += 1
-
     return count
