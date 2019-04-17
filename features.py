@@ -32,5 +32,5 @@ def length(text):
     return len(text)
 
 # Number of times the word 'free' occurs in the given text
-def num_free_occurences(text)
+def num_free_occurences(text):
     return 0
