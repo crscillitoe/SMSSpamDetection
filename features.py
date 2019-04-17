@@ -4,32 +4,29 @@
 ###############################################################
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- #
-#     Percent functions, these return a value from 0 - 100    #
-# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- #
-
-# What percentage of the text is capitalized
-def percent_caps(text):
-    return 0
-
-# What percentage of the text is special characters
-def percent_special(text):
-    return 0
-
-# What percentage of the text is numeric
-def percent_numeric(text):
-    return 0
-
-# What percentage of the text uses [. , ? !] characters
-def percent_punctuation(text):
-    return 0
-
-# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- #
 #     Generic functions, returns vary function to function    #
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- #
 
-# Length of the text
-def length(text):
-    return len(text)
+
+# Number of times a URL appears in the text
+def url_count(text):
+    return 0
+
+# Number of times a currency symbol appears in the text
+def currency_count(text):
+    return 0
+
+# Returns the length of the longest series of consecutive numbers in the given text
+def longest_numerical_string(text):
+    return 0
+
+# Returns the average word length in the given text
+def average_word_length(text):
+    return 0
+
+# Number of times the word 'win' occurs in the given text
+def num_win_occurences(text):
+    return 0
 
 # Number of times the word 'free' occurs in the given text
 def num_free_occurences(text):
