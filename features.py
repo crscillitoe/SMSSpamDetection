@@ -19,13 +19,9 @@ def url_count(text):
 
 # Number of times a currency symbol appears in the text
 def currency_count(text):
-    count = 0
-    symbols = ['$', '£']
-    for word in text.split():
-      for symbol in symbols:
-        if symbol in word:
-          count += 1
-    return count
+    symbol = '$|€|¥|£|₣'
+    symbols = re.findall(symbol, text)
+    return len(symbols)
 
 # Returns the length of the longest series of consecutive numbers in the given text
 def longest_numerical_string(text):
