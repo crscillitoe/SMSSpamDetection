@@ -22,13 +22,21 @@ def longest_numerical_string(text):
 
 # Returns the average word length in the given text
 def average_word_length(text):
-    text = text.split(' ')
-    print(text)
-    return 0
+    words = text.split(' ')
+    length = 0
+    for word in words:
+        length += len(word)
+    return length/len(words)
 
 # Number of times the word 'win' occurs in the given text
 def num_win_occurences(text):
-    return 0
+    words = text.split(' ')
+    count = 0
+    for word in words:
+        word = word.lower()
+        if word == 'win' or word == 'winning':
+            count += 1
+    return count
 
 # Number of times the word 'free' occurs in the given text
 def num_free_occurences(text):
