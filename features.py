@@ -22,9 +22,9 @@ def url_count(text):
 
 # Number of times a currency symbol appears in the text
 def currency_count(text):
-    symbol = '$|£|€|¥|₣'
+    symbol = '\$|£|€|¥|₣'
     symbols = re.findall(symbol, text)
-    return len(symbols) - 1
+    return len(symbols)
 
 def word_count(text):
     return len(text.split(' '))
