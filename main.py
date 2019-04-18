@@ -12,23 +12,31 @@ def main():
     data = load_data(file_path)
     preprocess_data(data)
 
-    spams = []
-    hams = []
+    X_pyth = []
+    y_pyth = []
     for d in data:
         text = d['text']
+        entry = (
+            features.currency_count(text),
+            features.url_count(text),
+            features.word_count(text),
+            features.longest_numerical_string(text),
+            features.average_word_length(text),
+            features.num_win_occurences(text),
+            features.num_free_occurences(text)
+        )
+
+        X_pyth.append(entry)
+
         if d['category'] == 'spam':
-            entry = {
-                'currency_count': features.currency_count(text),
-                'url_count': features.url_count(text),
-                'word_count': features.word_count(text),
-                'longest_numerical_string': features.longest_numerical_string(text),
-                'average_word_length': features.average_word_length(text),
-
-            }
-            spams.append(d['text'])
+            y_pyth.append(0)
         else:
-            hams.append(d['text'])
+            y_pyth.append(1)
 
+    X = np.array(X_pyth)
+    y = np.array(y_pyth)
+    print(X.shape)
+    print(y.shape)
 
 if __name__ == '__main__':
     main()
