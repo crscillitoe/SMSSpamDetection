@@ -6,6 +6,10 @@ matplotlib.use('TkAgg') # fixes error on mac: https://stackoverflow.com/question
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+from mlxtend.plotting import plot_confusion_matrix
 
 def main():
     file_path = 'spam.csv'
@@ -35,8 +39,33 @@ def main():
 
     X = np.array(X_pyth)
     y = np.array(y_pyth)
-    print(X.shape)
-    print(y.shape)
+
+
+    # Randomly shuffle data
+    p = np.random.permutation(len(y_pyth))
+    X = X[p]
+    y = y[p]
+
+    # Split into training and testing datasets
+    X_train = X[0:4000]
+    y_train = y[0:4000]
+
+    X_test = X[4001:5571]
+    y_test = y[4001:5571]
+
+    model = DecisionTreeClassifier()
+    model.fit(X_train, y_train)
+
+    prediction = model.predict(X_test)
+    accuracy = accuracy_score(y_test, prediction)
+
+    matrix = confusion_matrix(y_test, prediction)
+    binary = np.array(matrix)
+
+    fig, ax = plot_confusion_matrix(conf_mat=binary)
+    plt.show()
+
+    print(accuracy)
 
 if __name__ == '__main__':
     main()
