@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 ###############################################################
 # features.py - functions that will quantify various features #
 #               for a given data point in the data set        #
