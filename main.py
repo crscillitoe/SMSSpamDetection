@@ -26,11 +26,11 @@ def main():
 def plot_function_to_test(plot_title, hams, spams):
     spam_total = 0
     for spam in spams:
-        spam_total += features.longest_numerical_string(spam)
+        spam_total += features.currency_count(spam)
 
     ham_total = 0
     for ham in hams:
-        ham_total += features.longest_numerical_string(ham)
+        ham_total += features.currency_count(ham)
 
     classes = ['Spam', 'Ham']
 
@@ -41,7 +41,7 @@ def plot_function_to_test(plot_title, hams, spams):
         'free':(percent_spam, percent_ham)
     }, index=classes)
 
-    graph = percentages.free.plot(kind='bar', title='Average length of longest numerical string')
+    graph = percentages.free.plot(kind='bar', title='Average Usage of Currency Symbols per message')
     plt.show()
 
 

@@ -23,7 +23,10 @@ def url_count(text):
 def currency_count(text):
     symbol = '$|£|€|¥|₣'
     symbols = re.findall(symbol, text)
-    return len(symbols)
+    return len(symbols) - 1
+
+def word_count(text):
+    return len(text.split(' '))
 
 # Returns the length of the longest series of consecutive numbers in the given text
 def longest_numerical_string(text):
