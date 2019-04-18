@@ -15,35 +15,23 @@ def main():
     spams = []
     hams = []
     for d in data:
+        text = d['text']
         if d['category'] == 'spam':
+            entry = {
+                'currency_count': features.currency_count(text),
+                'url_count': features.url_count(text),
+                'word_count': features.word_count(text),
+                'longest_numerical_string': features.longest_numerical_string(text),
+                'average_word_length': features.average_word_length(text),
+
+            }
             spams.append(d['text'])
         else:
             hams.append(d['text'])
 
-    plot_function_to_test('Number of "Free" Occurences', hams, spams)
 
-
-def plot_function_to_test(plot_title, hams, spams):
-    spam_total = 0
-    for spam in spams:
-        spam_total += features.currency_count(spam)
-
-    ham_total = 0
-    for ham in hams:
-        ham_total += features.currency_count(ham)
-
-    classes = ['Spam', 'Ham']
-
-    percent_spam = (spam_total / len(spams)) 
-    percent_ham  = (ham_total / len(hams)) 
-
-    percentages = pd.DataFrame({
-        'free':(percent_spam, percent_ham)
-    }, index=classes)
-
-    graph = percentages.free.plot(kind='bar', title='Average Usage of Currency Symbols per message')
-    plt.show()
-
+    print(hams)
+    print(spams)
 
 
 if __name__ == '__main__':
