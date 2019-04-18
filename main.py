@@ -26,11 +26,14 @@ def main():
 def plot_function_to_test(plot_title, hams, spams):
     spam_total = 0
     for spam in spams:
-        spam_total += features.currency_count(spam)
+        spam_total += features.url_count(spam)
 
     ham_total = 0
     for ham in hams:
-        ham_total += features.currency_count(ham)
+        ham_total += features.url_count(ham)
+
+    print(spam_total)
+    print(ham_total)
 
     classes = ['Spam', 'Ham']
 
@@ -41,7 +44,7 @@ def plot_function_to_test(plot_title, hams, spams):
         'free':(percent_spam, percent_ham)
     }, index=classes)
 
-    graph = percentages.free.plot(kind='bar', title='Average Usage of Currency Symbols per message')
+    graph = percentages.free.plot(kind='bar', title='Average Number of urls per message')
     plt.show()
 
 
