@@ -1,3 +1,5 @@
+# coding=utf-8
+
 ###############################################################
 # features.py - functions that will quantify various features #
 #               for a given data point in the data set        #
@@ -19,7 +21,7 @@ def url_count(text):
 
 # Number of times a currency symbol appears in the text
 def currency_count(text):
-    symbol = '$|€|¥|£|₣'
+    symbol = '$|£|€|¥|₣'
     symbols = re.findall(symbol, text)
     return len(symbols)
 

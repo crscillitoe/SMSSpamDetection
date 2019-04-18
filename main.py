@@ -1,5 +1,8 @@
 import features
 from data_loader import load_data
+from preprocessing import preprocess_data
+import matplotlib
+matplotlib.use('TkAgg') # fixes error on mac: https://stackoverflow.com/questions/2512225/matplotlib-plots-not-showing-up-in-mac-osx
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -7,6 +10,7 @@ import pandas as pd
 def main():
     file_path = 'spam.csv'
     data = load_data(file_path)
+    preprocess_data(data)
 
     spams = []
     hams = []
