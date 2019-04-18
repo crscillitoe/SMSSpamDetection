@@ -15,7 +15,9 @@ import re
 # Number of times a URL appears in the text
 def url_count(text):
     # https://www.geeksforgeeks.org/python-check-url-string/
-    url = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    # doesn't actually seem to work
+    # url = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    url = '.co|.net|.org'
     urls = re.findall(url, text.lower())
     return len(urls)
 

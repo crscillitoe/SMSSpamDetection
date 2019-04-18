@@ -30,9 +30,5 @@ def main():
             hams.append(d['text'])
 
 
-    print(hams)
-    print(spams)
-
-
 if __name__ == '__main__':
     main()
