@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+
+# coding=utf-8
 
 ###############################################################
 # features.py - functions that will quantify various features #
@@ -14,21 +15,16 @@ import re
 
 # Number of times a URL appears in the text
 def url_count(text):
-    count = 0
-    for word in text.split():
-      if 'http://' in word or 'https://' in word.lower():
-        count += 1
-    return count
+    # https://www.geeksforgeeks.org/python-check-url-string/
+    url = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    urls = re.findall(url, text.lower())
+    return len(urls)
 
 # Number of times a currency symbol appears in the text
 def currency_count(text):
-    count = 0
-    symbols = ['$', '£']
-    for word in text.split():
-      for symbol in symbols:
-        if symbol in word:
-          count += 1
-    return count
+    symbol = '$|£|€|¥|₣'
+    symbols = re.findall(symbol, text)
+    return len(symbols)
 
 # Returns the length of the longest series of consecutive numbers in the given text
 def longest_numerical_string(text):
