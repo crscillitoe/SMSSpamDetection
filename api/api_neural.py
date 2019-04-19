@@ -40,10 +40,10 @@ def is_spam():
 
     prediction = model.predict(X)
     print(prediction)
-    if (prediction[0])[0] > 0.9:
-        return jsonify({"prediction": "Spam"})
+    if (prediction[0])[0] > 0.8:
+        return jsonify({"prediction": "Spam", "certainty": "{}".format((prediction[0])[0])})
 
-    return jsonify({"prediction": "Not Spam"})
+    return jsonify({"prediction": "Not Spam", "certainty": "{}".format((prediction[0])[1])})
 
 if __name__ == '__main__':
     main()
