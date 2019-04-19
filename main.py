@@ -26,11 +26,11 @@ def main():
 def plot_function_to_test(plot_title, hams, spams):
     spam_total = 0
     for spam in spams:
-        spam_total += features.currency_count(spam)
+        spam_total += features.url_count(spam)
 
     ham_total = 0
     for ham in hams:
-        ham_total += features.currency_count(ham)
+        ham_total += features.url_count(ham)
 
     classes = ['Spam', 'Ham']
 
