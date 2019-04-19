@@ -38,7 +38,7 @@
 						callback(JSON.parse(this.responseText));
 					}
 				};
-				xhttp.open("POST", "http://130.215.249.152:5000/api/isSpam", true);
+				xhttp.open("POST", "https://cors-anywhere.herokuapp.com/http://130.215.249.152:5000/api/isSpam", true);
 				xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				xhttp.send(JSON.stringify({"Text": sms}));
 			}
