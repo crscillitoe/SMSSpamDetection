@@ -4,13 +4,19 @@
 	</head>
 	<body>
 		<h1 id="title" >SMS Spam Detector</h1>
+		<p id="instructions">Enter a text message and hit "Check" to determine whether it's spam or legit.</p>
 		<div id="submission-area">
 			<textarea id="input-area"></textarea>
-			<button onclick="detectSpam()">Check</button>
-			<button onclick="clearScreen()">Clear</button>
+			<div id="buttons">
+				<button onclick="detectSpam()">Check</button>
+				<button onclick="clearScreen()">Clear</button>
+			</div>
 			<p id="result"></p>
 			<p id="certainty"></p>
 		</div>
+		<p>
+			Interested in how the spam detector works? See <a href="about.html">this</a>.
+		</p>
 
 		<script>
 			let resultText, inputText, certaintyText;

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		 <link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+    <h1 id="title" >About the SMS Spam Detector</h1>
+    <p>
+      The SMS Spam Detector uses a neural network to predict whether a message is spam or not. It was trained on a dataset of 5574 example SMS messages, available <a href="spam.csv">here</a>. Of the example messages, 4825 (87%) are not spam, and 747 (13%) are spam. 
+    </p>
+    <p>Several features of messages are used to determine whether a message is spam or not. These include:</p>
+    <ul>
+      <li>Average word length</li>
+      <li>Average number of words per text</li>
+      <li>Number of currency symbols</li>
+      <li>Number of urls</li>
+      <li>Length of the longest number</li>
+      <li>Occurrences of the word “free”</li>
+      <li>Occurrences of the word “win”</li>
+    </ul>
+    <p>
+      With spam filters, it is important to minimize false positives (classifying non-spam messages as spam). The model takes this into account, and only classifies a message as spam if it is at least 80% sure.
+    </p>
+		<a href="/">Back to Detector</a>
+	</body>
+</html>
