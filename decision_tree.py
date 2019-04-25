@@ -3,6 +3,8 @@ from data_loader import load_data
 from preprocessing import preprocess_data
 import matplotlib
 
+from sklearn.tree import export_graphviz
+
 # fixes error on mac
 matplotlib.use('TkAgg') 
 
