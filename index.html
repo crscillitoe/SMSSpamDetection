@@ -11,30 +11,41 @@
 				<button onclick="detectSpam()">Check</button>
 				<button onclick="clearScreen()">Clear</button>
 			</div>
-			<p id="result"></p>
-			<p id="certainty"></p>
 		</div>
+		<p id="nn_result"></p>
+		<p id="dt_result"></p>
 		<p>
 			Interested in how the spam detector works? See <a href="about.html">this</a>.
 		</p>
 
 		<script>
-			let resultText, inputText, certaintyText;
+			let nn_resultText, inputText, dt_resultText;
 
 			function detectSpam() {
 				requestPrediction(inputText.value, showResult);
 			}
 
 			function showResult(result) {
-				let spam = result.prediction === "Spam"
-				if (spam){
-					resultText.innerHTML = "Spam!";
-					resultText.style.color = "#D00000";
+				let nn_spam = result.prediction === "Spam"
+				let dt_spam = result.decision_tree_prediction === "Spam"
+
+				console.log(result)
+
+				if (nn_spam){
+					nn_resultText.innerHTML = `Neural Network: Spam! ${(parseFloat(result.certainty) * 100).toFixed(2)}% certain`;
+					nn_resultText.style.color = "#D00000";
 				} else {
-					resultText.innerHTML = "Not spam";
-					resultText.style.color = "#20C415";
+					nn_resultText.innerHTML = `Neural Network: Not spam, ${(parseFloat(result.certainty) * 100).toFixed(2)}% certain`;
+					nn_resultText.style.color = "#20C415";
 				}
-				certaintyText.innerHTML = `${(parseFloat(result.certainty) * 100).toFixed(2)}% certain`
+
+				if (dt_spam) {
+					dt_resultText.innerHTML = `Decision Tree: Spam!`;
+					dt_resultText.style.color = "#D00000";
+				} else {
+					dt_resultText.innerHTML = `Decision Tree: Not Spam`;
+					dt_resultText.style.color = "#20C415";
+				}
 			}
 
 			function requestPrediction(sms, callback) {
@@ -51,14 +62,14 @@
 
 			function clearScreen() {
 				inputText.value = ""
-				resultText.innerHTML= ""
-				certaintyText.innerHTML= ""
+				nn_resultText.innerHTML= ""
+				dt_resultText.innerHTML= ""
 			}
 
 			window.onload = () => {
 				inputText = document.getElementById("input-area");
-				resultText = document.getElementById("result");
-				certaintyText = document.getElementById("certainty");
+				nn_resultText = document.getElementById("nn_result");
+				dt_resultText = document.getElementById("dt_result");
 			}
 		</script>
 	</body>
