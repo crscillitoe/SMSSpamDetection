@@ -12,7 +12,7 @@ import pandas as pd
 
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Flatten, Conv2D, BatchNormalization
-from keras.utils import to_categorical
+from keras.utils import to_categorical, plot_model
 
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -61,6 +61,9 @@ def main():
     y_test = y[4001:5571]
 
     model = get_neural_network(X.shape[1])
+    plot_model(model, to_file='model.png')
+
+    return
     model.fit(X_train, y_train, epochs=100, batch_size=512)
 
     predictions = model.predict(X_test)
